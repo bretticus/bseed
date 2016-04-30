@@ -1,4 +1,18 @@
 {
+	"name": "bmillett/bseed",
+	"description": "Seeder for BambooHR",
+	"keywords": [],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Brett Millett",
+			"email": "bretticus@gmail.com"
+		}
+	],
+	"bin": ["bin/bseed.php"],
+	"config": {
+		"bin-dir": "./"
+	},
 	"require": {
 		"fzaninotto/faker": "^1.6",
 		"symfony/console": "^3.0"
@@ -6,6 +20,12 @@
 	"autoload": {
 		"psr-4": {
 			"BambooSeeder\\": "src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"extra": {
+		"branch-alias": {
+			"master": "1.0.0-alpa"
 		}
 	}
 }
