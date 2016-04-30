@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SeedCommand extends Command {
 
 	/**
-	 *
+	 * Configure paramters for command
 	 */
 	protected function configure() {
 		$this->setName('seed')
@@ -33,6 +33,7 @@ class SeedCommand extends Command {
 	 *
 	 * @param InputInterface $input
 	 * @param OutputInterface $output
+	 * @throws RuntimeException
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		$number = $input->getArgument('number');
