@@ -46,6 +46,9 @@ class SeedCommand extends Command {
 			if (file_exists($fileName)) {
 				throw new RuntimeException($fileName . ' already exists. Cowardly refusing to overwrite.');
 			}
+			if (!is_writable(dirname($fileName))) {
+				throw new RuntimeException('Cannot write to the parent directory: "' . dirname($fileName) . '"');
+			}
 			file_put_contents($fileName, $out);
 			$output->writeln('<info>Wrote output to ' . $fileName . '</info>');
 		} else {
