@@ -24,6 +24,7 @@ class Engine {
 			$firstName = $faker->firstName($gender);
 			$lastName = $faker->lastName;
 			$middleName = rand(0, 1) === 1 ? strtoupper($faker->randomLetter) : $faker->firstName($gender);
+			$employmentStatus = $i % 7 === 0 ? 'Part-Time' : 'Full-Time';
 			if (rand(0, 1) === 1) {
 				$payRate = $faker->numberBetween(3, 9) . $faker->numerify('#000.00');
 				$payType = 'Salary';
@@ -55,7 +56,7 @@ class Engine {
 				$faker->companyEmail,
 				$faker->freeEmail,
 				$faker->dateTimeThisDecade->format('n/d/Y'),
-				'Active',
+				$employmentStatus,
 				$faker->jobTitle,
 				'', #Department
 				'', #Division

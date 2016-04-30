@@ -26,7 +26,7 @@ class SeedCommand extends Command {
 				->setDescription('Generate Seed Data')
 				->addArgument('number', InputArgument::OPTIONAL, 'How many seed records do you want to generate?', 10)
 				->addOption('fileout', 'f', InputOption::VALUE_OPTIONAL, 'If set, the output will be written to file name specified instead of standard output.')
-				->addOption('type', 't', InputOption::VALUE_OPTIONAL, 'For now, we only support the csv type', 'csv');
+				->addOption('type', 't', InputOption::VALUE_OPTIONAL, 'Format [csv,text,json]', 'csv');
 	}
 
 	/**
