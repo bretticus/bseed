@@ -12,13 +12,20 @@ use Exception;
 class RendererFactory {
 
 	/**
-	 * 
+	 *
+	 * @var array Restrict possible types
+	 */
+	public static $types = ['csv', 'text', 'json'];
+
+	/**
+	 *
 	 * @param string $type
 	 * @return RendererInterface
 	 * @throws Exception
 	 */
 	public static function create($type) {
-		$class = 'BambooSeeder\\Renderers\\' . ucfirst(strtolower($type)) . 'Renderer';
+		$typeValidated = in_array($type, static::$types) ? $type : static::$types[0];
+		$class = 'BambooSeeder\\Renderers\\' . ucfirst(strtolower($typeValidated)) . 'Renderer';
 		if (!class_exists($class)) {
 			throw new Exception('Missing renderer class: ' . $class);
 		}

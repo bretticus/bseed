@@ -18,6 +18,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class SeedCommand extends Command {
 
+	
+
 	/**
 	 * Configure paramters for command
 	 */
@@ -26,7 +28,7 @@ class SeedCommand extends Command {
 				->setDescription('Generate Seed Data')
 				->addArgument('number', InputArgument::OPTIONAL, 'How many seed records do you want to generate?', 10)
 				->addOption('fileout', 'f', InputOption::VALUE_OPTIONAL, 'If set, the output will be written to file name specified instead of standard output.')
-				->addOption('type', 't', InputOption::VALUE_OPTIONAL, 'Format [csv,text,json]', 'csv');
+				->addOption('type', 't', InputOption::VALUE_OPTIONAL, 'Format [' . implode(',', RendererFactory::$types) . ']', RendererFactory::$types[0]);
 	}
 
 	/**
