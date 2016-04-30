@@ -39,7 +39,7 @@ class Engine {
 				'',
 				$i % 2 === 0 ? $middleName : '',
 				$lastName,
-				$faker->dateTimeThisCentury->format('n/d/Y'),
+				$faker->dateTimeThisCentury->format('n/j/Y'),
 				$faker->numerify('000-##-####'),
 				ucfirst($gender),
 				rand(0, 1) === 1 ? 'Married' : 'Single',
@@ -55,7 +55,7 @@ class Engine {
 				'',
 				$faker->companyEmail,
 				$faker->freeEmail,
-				$faker->dateTimeThisDecade->format('n/d/Y'),
+				$faker->dateTimeThisDecade->format('n/j/Y'),
 				$employmentStatus,
 				$faker->jobTitle,
 				'', #Department
