@@ -18,7 +18,7 @@ class RendererFactory {
 	 * @throws Exception
 	 */
 	public static function create($type) {
-		$class = 'BambooSeeder\\Libraries\\' . ucfirst(strtolower($type)) . 'Renderer';
+		$class = 'BambooSeeder\\Renderers\\' . ucfirst(strtolower($type)) . 'Renderer';
 		if (!class_exists($class)) {
 			throw new Exception('Missing renderer class: ' . $class);
 		}

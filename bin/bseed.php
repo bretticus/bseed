@@ -13,6 +13,6 @@ foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php
 
 $application = new Application();
 $application->setName('bseed');
-$application->setVersion('0.1');
+$application->setVersion('1.0.0-alpha');
 $application->add(new SeedCommand());
 $application->run();

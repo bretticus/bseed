@@ -1,7 +1,8 @@
 <?php
 
-namespace BambooSeeder\Libraries;
+namespace BambooSeeder\Renderers;
 
+use BambooSeeder\Libraries\RendererInterface;
 use Symfony\Component\Console\Exception\RuntimeException;
 
 /**
