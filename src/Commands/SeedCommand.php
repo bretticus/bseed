@@ -28,6 +28,7 @@ class SeedCommand extends Command {
 				->setDescription('Generate Seed Data')
 				->addArgument('number', InputArgument::OPTIONAL, 'How many seed records do you want to generate?', 10)
 				->addOption('fileout', 'f', InputOption::VALUE_OPTIONAL, 'If set, the output will be written to file name specified instead of standard output.')
+				->addOption('suppress-headers', null, InputOption::VALUE_NONE, 'If set, headers will not be written as the first row of results.')
 				->addOption('type', 't', InputOption::VALUE_OPTIONAL, 'Format [' . implode(',', RendererFactory::$types) . ']', RendererFactory::$types[0]);
 	}
 
@@ -41,8 +42,9 @@ class SeedCommand extends Command {
 		$number = $input->getArgument('number');
 		$fileName = $input->getOption('fileout');
 		$type = $input->getOption('type');
+		$supressHeaders = $input->getOption('suppress-headers');
 		$renderer = RendererFactory::create($type);
-		$records = Engine::render($number);
+		$records = Engine::render($number, $supressHeaders);
 		$renderer->setRecords($records);
 		$out = $renderer->render();
 		if (null !== $fileName) {
