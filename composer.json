@@ -9,6 +9,7 @@
 			"email": "bretticus@gmail.com"
 		}
 	],
+	"type": "project",
 	"bin": ["bin/bseed.php"],
 	"config": {
 		"bin-dir": "./"
