@@ -34,7 +34,7 @@ class Engine {
 			}
 			$data[] = [
 				'Active',
-				$faker->unique()->randomNumber(5),
+				str_pad($faker->unique()->randomNumber(4), 6, '0', STR_PAD_LEFT),
 				$firstName,
 				'',
 				$i % 2 === 0 ? $middleName : '',
