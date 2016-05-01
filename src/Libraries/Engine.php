@@ -13,15 +13,16 @@ class Engine {
 
 	/**
 	 *
-	 * @param int $number Number of seed records to produce
-	 * @param bool $supressHeaders
+	 * @param int	$number				Number of seed records to produce. (defaults to 10)
+	 * @param bool	$supressHeaders		Should we suppress the headers as the 1st row? (defaults to false)
+	 * @param type	$numberLocations	Number of locations to generate (defaults to 3)
 	 * @return array
 	 */
-	public static function render($number = 10, $supressHeaders = false) {
+	public static function render($number = 10, $supressHeaders = false, $numberLocations = 3) {
 		$faker = Factory::create();
 		$data = $supressHeaders ? [] : [Repository::getHeaders()];
 		$locations = [];
-		for ($i = 0; $i < 3; $i++) {
+		for ($i = 0; $i < $numberLocations; $i++) {
 			$locations[] = $faker->city;
 		}
 		for ($i = 0; $i < $number; $i++) {
@@ -36,7 +37,6 @@ class Engine {
 				$payRate = $faker->numberBetween(1, 4) . $faker->numerify('#.00');
 				$payType = 'Hourly';
 			}
-			$location = Repository::getRandom($locations);
 			$data[] = [
 				'Active',
 				str_pad($faker->unique()->randomNumber(4), 6, '0', STR_PAD_LEFT),
@@ -57,7 +57,7 @@ class Engine {
 				$faker->phoneNumber,
 				$faker->phoneNumber,
 				$faker->phoneNumber,
-				'',
+				$i % 3 === 0 ? $faker->numerify('x###') : '',
 				$faker->companyEmail,
 				$faker->freeEmail,
 				$faker->dateTimeThisDecade->format('n/j/Y'),
@@ -65,7 +65,7 @@ class Engine {
 				$faker->jobTitle,
 				Repository::getRandomDepartment(), #Department
 				Repository::getRandomDivision(), #Division
-				$location, #Location
+				Repository::getRandom($locations), #Location
 				$payRate, #Pay rate
 				$payType, #Pay type
 				'', #FLSA Code
