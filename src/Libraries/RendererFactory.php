@@ -15,7 +15,7 @@ class RendererFactory {
 	 *
 	 * @var array Restrict possible types
 	 */
-	public static $types = ['csv', 'text', 'json'];
+	public static $types = ['csv', 'text', 'json', 'xml'];
 
 	/**
 	 *
