@@ -43,7 +43,7 @@ class Repository {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function getHeaders() {
@@ -78,6 +78,7 @@ class Repository {
 			'Location',
 			'Pay rate',
 			'Pay type',
+			'Pay period',
 			'FLSA Code',
 			'Ethnicity',
 			'EEO Job Category',
@@ -138,7 +139,23 @@ class Repository {
 	 * @return string
 	 */
 	public static function getRandom($array) {
-		return $array[rand(0, count($array) - 1)];
+		return $array[mt_rand(0, count($array) - 1)];
+	}
+
+	/**
+	* @return string
+	**/
+	public static function getPayPeriod() {
+		return self::getRandom([
+			'Daily',
+			'Weekly',
+			'Every other week',
+			'Twice a month',
+			'Monthly',
+			'Quarterly',
+			'Twice a year',
+			'Yearly'
+		]);
 	}
 
 }

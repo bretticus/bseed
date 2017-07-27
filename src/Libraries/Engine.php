@@ -3,6 +3,7 @@
 namespace BambooSeeder\Libraries;
 
 use Faker\Factory;
+use BambooSeeder\Libraries\Repository;
 
 /**
  * Description of Engine
@@ -67,7 +68,7 @@ class Engine {
 				Repository::getRandomDivision(), #Division
 				Repository::getRandom($locations), #Location
 				$payRate, #Pay rate
-				$payType, #Pay type
+				Repository::getPayPeriod(), #Pay period
 				'', #FLSA Code
 				'', #Ethnicity
 				'', #EEO Job Category
