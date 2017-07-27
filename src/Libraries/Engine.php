@@ -70,6 +70,7 @@ class Engine {
 				$payRate, #Pay rate
 				$payType, #Pay type
 				Repository::getPayPeriod(), #Pay period
+				Repository::getPaidPer(), #Paid per
 				'', #FLSA Code
 				'', #Ethnicity
 				'', #EEO Job Category

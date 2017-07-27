@@ -79,6 +79,7 @@ class Repository {
 			'Pay rate',
 			'Pay type',
 			'Pay period',
+			'Paid per',
 			'FLSA Code',
 			'Ethnicity',
 			'EEO Job Category',
@@ -155,6 +156,22 @@ class Repository {
 			'Quarterly',
 			'Twice a year',
 			'Yearly'
+		]);
+	}
+
+	/**
+	* @return string
+	**/
+	public static function getPaidPer() {
+		return self::getRandom([
+			'Hour',
+			'Day',
+			'Week',
+			'Month',
+			'Quarter',
+			'Year',
+			'Pay Period',
+			'Piece'
 		]);
 	}
 
