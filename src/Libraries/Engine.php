@@ -3,7 +3,6 @@
 namespace BambooSeeder\Libraries;
 
 use Faker\Factory;
-use BambooSeeder\Libraries\Repository;
 
 /**
  * Description of Engine
@@ -14,9 +13,9 @@ class Engine {
 
 	/**
 	 *
-	 * @param int	$number				Number of seed records to produce. (defaults to 10)
-	 * @param bool	$supressHeaders		Should we suppress the headers as the 1st row? (defaults to false)
-	 * @param type	$numberLocations	Number of locations to generate (defaults to 3)
+	 * @param int  $number          Number of seed records to produce. (defaults to 10)
+	 * @param bool $supressHeaders  Should we suppress the headers as the 1st row? (defaults to false)
+	 * @param type $numberLocations Number of locations to generate (defaults to 3)
 	 * @return array
 	 */
 	public static function render($number = 10, $supressHeaders = false, $numberLocations = 3) {
